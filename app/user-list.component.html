@@ -1,0 +1,19 @@
+<div>
+  <label>
+    添加新用户
+    <input type="text" [(ngModel)]="username" placeholder="请输入用户名" (keyup.enter)="createUser()" />
+  </label>
+  <p>要添加的用户为：{{username}}</p>
+</div>
+<div *ngIf="getUsersCount()">
+  <ul>
+    <li *ngFor="#user of users">
+      <user-item [user]="user" (updateUser)="updateUser(user, $event)"></user-item>
+      <a (click)="deleteUser(user)">删除</a>
+    </li>
+  </ul>
+  <p>用户的数量是：{{getUsersCount()}}</p>
+</div>
+<div *ngIf="!getUsersCount()">
+  <p>木有用户(°Д°)</p>
+</div>
