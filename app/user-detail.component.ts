@@ -10,7 +10,7 @@ const component = {
 
 @Component(component)
 export class UserDetailComponent implements OnInit {
-    constructor(private _service: UserService
+    constructor(private _service: UserService,
                 private _params: RouteParams) {}
 
     user: User
